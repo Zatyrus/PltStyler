@@ -3,6 +3,12 @@ A simple package to provide a collection of stylesheets and default values for P
 
 I will add more stylesheets and default values in the future! If you have any suggestions or want to contribute, feel free to open an issue or a pull request.
 
+# Installation
+You can install PltStyler using pip:
+```bash
+pip install PltStyler
+```
+
 # Usage
 To use PltStyler, simply import the desired stylesheet and apply it to your matplotlib figures. For example:
 ```python

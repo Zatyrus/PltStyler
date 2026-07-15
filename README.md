@@ -16,16 +16,19 @@ import matplotlib.pyplot as plt
 from PltStyler import PltStyler
 
 # Apply the default stylesheet
-PltStyler().apply_stylesheet()
+PltStyler().apply()
 
 # Apply a predefined stylesheet (e.g., "dark")
-PltStyler().set_stylesheet("dark").apply_stylesheet()
+PltStyler().set_stylesheet("dark").apply()
 
 # Apply a custom stylesheet - must be json (see below for an example)
-PltStyler().set_stylesheet("path/to/stylesheet.json").apply_stylesheet()
+PltStyler().set_stylesheet("path/to/stylesheet.json").apply()
 
 # Change the font
-PltStyler().set_font(family="Arial", weight="normal").apply_font()
+PltStyler().set_font(family="Arial", weight="normal").apply()
+
+# Because the PltStyler is a singleton and the methods return the instance itself, you can chain the methods together for conveniently readable code:
+PltStyler().set_stylesheet("dark").set_font(family="Arial", weight="normal").apply()
 
 # The PltStyler inclused default parameters for the following plot types:
 # - Line plots

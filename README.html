@@ -152,16 +152,19 @@
 <span class="hljs-keyword">from</span> PltStyler <span class="hljs-keyword">import</span> PltStyler
 
 <span class="hljs-comment"># Apply the default stylesheet</span>
-PltStyler().apply_stylesheet()
+PltStyler().apply()
 
 <span class="hljs-comment"># Apply a predefined stylesheet (e.g., &quot;dark&quot;)</span>
-PltStyler().set_stylesheet(<span class="hljs-string">&quot;dark&quot;</span>).apply_stylesheet()
+PltStyler().set_stylesheet(<span class="hljs-string">&quot;dark&quot;</span>).apply()
 
 <span class="hljs-comment"># Apply a custom stylesheet - must be json (see below for an example)</span>
-PltStyler().set_stylesheet(<span class="hljs-string">&quot;path/to/stylesheet.json&quot;</span>).apply_stylesheet()
+PltStyler().set_stylesheet(<span class="hljs-string">&quot;path/to/stylesheet.json&quot;</span>).apply()
 
 <span class="hljs-comment"># Change the font</span>
-PltStyler().set_font(family=<span class="hljs-string">&quot;Arial&quot;</span>, weight=<span class="hljs-string">&quot;normal&quot;</span>).apply_font()
+PltStyler().set_font(family=<span class="hljs-string">&quot;Arial&quot;</span>, weight=<span class="hljs-string">&quot;normal&quot;</span>).apply()
+
+<span class="hljs-comment"># Because the PltStyler is a singleton and the methods return the instance itself, you can chain the methods together for conveniently readable code:</span>
+PltStyler().set_stylesheet(<span class="hljs-string">&quot;dark&quot;</span>).set_font(family=<span class="hljs-string">&quot;Arial&quot;</span>, weight=<span class="hljs-string">&quot;normal&quot;</span>).apply()
 
 <span class="hljs-comment"># The PltStyler inclused default parameters for the following plot types:</span>
 <span class="hljs-comment"># - Line plots</span>

@@ -53,6 +53,12 @@ class PltStyler:
             if self.verbose:
                 print("No stylesheet provided, using default settings.")
 
+    # %% Singleton pattern implementation
+    def __new__(cls):
+        if not hasattr(cls, "inst"):
+            cls.inst = super().__new__(cls)
+        return cls.inst
+
     # %% Colorbar styling method
     def make_colormap(
         self,

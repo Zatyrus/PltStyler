@@ -39,6 +39,9 @@ PltStyler().set_stylesheet("dark").set_font(family="Arial", weight="normal").app
 lineplot_defaults = PltStyler().get_lineplot_defaults()
 
 ## Example
+import matplotlib.pyplot as plt
+from PltStyler import PltStyler
+
 # Create sample data
 x = [1, 2, 3, 4, 5]
 y = [1, 4, 9, 16, 25]

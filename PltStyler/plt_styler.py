@@ -1,6 +1,7 @@
 ## Dependiencies
 import os
 import json
+import logging
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import Dict, Any, List, NoReturn, Union
@@ -52,6 +53,15 @@ class PltStyler:
 
             if self.verbose:
                 print("No stylesheet provided, using default settings.")
+
+        self.__post_init__()
+
+    def __post_init__(self):
+        # disable matplotlib font manager logging to avoid cluttering the output with warnings about missing fonts
+        logging.getLogger("matplotlib.font_manager").disabled = True
+
+        # apply the stylesheet (style and font settings) to matplotlib
+        self.apply()
 
     # %% Singleton pattern implementation
     def __new__(cls):

@@ -174,13 +174,26 @@ PltStyler().set_stylesheet(<span class="hljs-string">&quot;dark&quot;</span>).se
 
 lineplot_defaults = PltStyler().get_lineplot_defaults()
 
-<span class="hljs-comment"># Create a sample plot</span>
+<span class="hljs-comment">## Example</span>
+<span class="hljs-comment"># Create sample data</span>
 x = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
 y = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">16</span>, <span class="hljs-number">25</span>]
-plt.plot(x, y, **lineplot_defaults) <span class="hljs-comment"># apply lineplot defaults</span>
-plt.title(<span class="hljs-string">&quot;Sample Plot&quot;</span>)
-plt.xlabel(<span class="hljs-string">&quot;X-axis&quot;</span>)
-plt.ylabel(<span class="hljs-string">&quot;Y-axis&quot;</span>)
+
+<span class="hljs-comment"># Apply the stylesheet BEFORE creating the plot</span>
+PltStyler().set_stylesheet(<span class="hljs-string">&quot;bright&quot;</span>).set_font(size=<span class="hljs-number">12</span>, weight=<span class="hljs-string">&quot;bold&quot;</span>).apply()
+
+<span class="hljs-comment"># Create a sample plot</span>
+fig, ax = plt.subplots(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">8</span>, <span class="hljs-number">6</span>))
+
+<span class="hljs-comment"># plot the data using the default parameters for line plots</span>
+lineplot_defaults = PltStyler().get_default_parameters(<span class="hljs-string">&quot;lineplot&quot;</span>)
+ax.plot(x, y, **lineplot_defaults)
+
+<span class="hljs-comment"># apply labels and title</span>
+ax.set_title(<span class="hljs-string">&quot;Sample Plot&quot;</span>)
+ax.set_xlabel(<span class="hljs-string">&quot;X-axis&quot;</span>, fontsize=<span class="hljs-number">14</span>, fontweight=<span class="hljs-string">&#x27;bold&#x27;</span>)
+ax.set_ylabel(<span class="hljs-string">&quot;Y-axis&quot;</span>, fontsize=<span class="hljs-number">14</span>, fontweight=<span class="hljs-string">&#x27;bold&#x27;</span>)
+
 plt.show()
 </code></pre>
 

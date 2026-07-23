@@ -38,12 +38,25 @@ PltStyler().set_stylesheet("dark").set_font(family="Arial", weight="normal").app
 
 lineplot_defaults = PltStyler().get_lineplot_defaults()
 
-# Create a sample plot
+## Example
+# Create sample data
 x = [1, 2, 3, 4, 5]
 y = [1, 4, 9, 16, 25]
-plt.plot(x, y, **lineplot_defaults) # apply lineplot defaults
-plt.title("Sample Plot")
-plt.xlabel("X-axis")
-plt.ylabel("Y-axis")
+
+# Apply the stylesheet BEFORE creating the plot
+PltStyler().set_stylesheet("bright").set_font(size=12, weight="bold").apply()
+
+# Create a sample plot
+fig, ax = plt.subplots(1,1, figsize=(8, 6))
+
+# plot the data using the default parameters for line plots
+lineplot_defaults = PltStyler().get_default_parameters("lineplot")
+ax.plot(x, y, **lineplot_defaults)
+
+# apply labels and title
+ax.set_title("Sample Plot")
+ax.set_xlabel("X-axis", fontsize=14, fontweight='bold')
+ax.set_ylabel("Y-axis", fontsize=14, fontweight='bold')
+
 plt.show()
 ```
